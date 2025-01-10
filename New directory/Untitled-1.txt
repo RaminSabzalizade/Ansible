@@ -1,0 +1,15 @@
+[root@OSSM-1 SouthInfData]# cp -r /export/home/omc/med/BTS59005GNE/OSS_BTS59005G_MATCH_ENG_V300R021C10SPC310/gNodeBFunction/SouthInfData   /home/sopuser
+[root@OSSM-1 SouthInfData]# chown "sopuser" /home/sopuser/SouthInfData
+/export/home/omc/med/BTS3900NE/OSS_BTS3900_MATCH_ENG_V300R019C10SPC290/gNodeBFunction/SouthInfData
+[root@OSSM-1 OSS_BTS5900_MATCH_ENG_V300R021C10SPC310]# find -iname *.xml -type f > test
+[root@OSSM-1 med]# grep -ri --include="*.xml" "X2_SGNB_CHANGE_CONFIRM" /export/home/omc/med/BTS3900NE | sort | uniq -l > test1
+X2HoCancel
+
+[root@OSSM-1 conf]# cp KPICounters_v1.xml  /home/sopuser
+[root@OSSM-1 conf]# cp KPICounters.xml  /home/sopuser
+[root@OSSM-1 conf]#
+[root@OSSM-1 conf]#
+[root@OSSM-1 conf]#
+[root@OSSM-1 conf]#
+[root@OSSM-1 conf]#  chown "sopuser" /home/sopuser/KPICounters.xml
+[root@OSSM-1 conf]#  chown "sopuser" /home/sopuser/KPICounters_v1.xml
