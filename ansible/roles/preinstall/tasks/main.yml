@@ -1,0 +1,38 @@
+
+# tasks file for preinstall
+
+- name: Set timezone
+  timezone:
+    name: Etc/UTC
+
+- name: Set hostname
+  command: hostnamectl set-hostname {{ inventory_hostname }}
+
+- name: Add hostname to /etc/hosts
+  lineinfile:
+    path: "{{ etc_hosts_path }}"
+    regexp: '^127\.0\.1\.1'
+    line: "127.0.1.1 {{ inventory_hostname }}"
+    state: present
+
+- name: Fix broken dpkg state
+  command: sudo dpkg --configure -a
+  become: true
+  ignore_errors: yes
+
+
+
+- name: Install necessary packages
+  apt:
+    name:
+      - vim
+      - sudo
+      - wget
+      - curl
+      - git
+      - nload
+      - net-tools
+      - htop
+    state: present
+    update_cache: yes
+

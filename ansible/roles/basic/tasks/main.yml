@@ -1,0 +1,25 @@
+---
+# tasks file for basic
+
+- name : copy file from source in file folder to other servers
+  copy:
+    src: issue.net
+    dest: /etc/issue.net
+
+- name: add banner to sshd config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^Banner'
+    line: 'Banner /etc/issue.net'
+
+- name:  Restart the service
+  service:
+    name: ssh
+    state: restarted
+
+
+
+- name: Copy resolv.conf to remote servers
+  copy:
+    src: resolv.conf
+    dest: /etc/resolv.conf

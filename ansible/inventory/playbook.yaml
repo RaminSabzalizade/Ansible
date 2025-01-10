@@ -1,0 +1,10 @@
+---
+ - name : install nginx on servers
+   hosts: all
+   become: yes
+   tasks:
+     - name: restart the service
+       service:
+         name: nginx
+         state: restarted
+         enabled: yes
